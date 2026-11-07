@@ -5,65 +5,78 @@ namespace CapaDatos
 {
     public class DepartamentoDAL
     {
+        // Trae todos los departamentos
         public DataTable ObtenerTodos()
         {
-            var dt = new DataTable();
-            using (var con = ConexionDB.ObtenerConexion())
-            using (var cmd = new SqlCommand("SELECT IdDepartamento, NombreDepartamento FROM Departamento", con))
-            using (var adapter = new SqlDataAdapter(cmd))
-            {
-                adapter.Fill(dt);
-            }
-            return dt;
+            DataTable tabla = new DataTable();
+
+            SqlConnection con = ConexionDB.ObtenerConexion();
+            SqlCommand cmd = new SqlCommand("SELECT IdDepartamento, NombreDepartamento FROM Departamento", con);
+            SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
+            adaptador.Fill(tabla);
+            con.Close();
+
+            return tabla;
         }
 
+        // Agrega un departamento
         public bool Insertar(string nombre)
         {
-            using (var con = ConexionDB.ObtenerConexion())
-            using (var cmd = new SqlCommand("INSERT INTO Departamento (NombreDepartamento) VALUES (@Nombre)", con))
-            {
-                cmd.Parameters.AddWithValue("@Nombre", nombre);
-                return cmd.ExecuteNonQuery() > 0;
-            }
+            SqlConnection con = ConexionDB.ObtenerConexion();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Departamento (NombreDepartamento) VALUES (@Nombre)", con);
+            cmd.Parameters.AddWithValue("@Nombre", nombre);
+
+            int filas = cmd.ExecuteNonQuery();
+            con.Close();
+
+            return filas > 0;
         }
 
+        // Modifica un departamento
         public bool Actualizar(int idDepartamento, string nombre)
         {
-            using (var con = ConexionDB.ObtenerConexion())
-            using (var cmd = new SqlCommand("UPDATE Departamento SET NombreDepartamento=@Nombre WHERE IdDepartamento=@Id", con))
-            {
-                cmd.Parameters.AddWithValue("@Nombre", nombre);
-                cmd.Parameters.AddWithValue("@Id", idDepartamento);
-                return cmd.ExecuteNonQuery() > 0;
-            }
+            SqlConnection con = ConexionDB.ObtenerConexion();
+            SqlCommand cmd = new SqlCommand("UPDATE Departamento SET NombreDepartamento=@Nombre WHERE IdDepartamento=@Id", con);
+            cmd.Parameters.AddWithValue("@Nombre", nombre);
+            cmd.Parameters.AddWithValue("@Id", idDepartamento);
+
+            int filas = cmd.ExecuteNonQuery();
+            con.Close();
+
+            return filas > 0;
         }
 
+        // Elimina un departamento
         public bool Eliminar(int idDepartamento)
         {
-            using (var con = ConexionDB.ObtenerConexion())
-            using (var cmd = new SqlCommand("DELETE FROM Departamento WHERE IdDepartamento=@Id", con))
-            {
-                cmd.Parameters.AddWithValue("@Id", idDepartamento);
-                return cmd.ExecuteNonQuery() > 0;
-            }
+            SqlConnection con = ConexionDB.ObtenerConexion();
+            SqlCommand cmd = new SqlCommand("DELETE FROM Departamento WHERE IdDepartamento=@Id", con);
+            cmd.Parameters.AddWithValue("@Id", idDepartamento);
+
+            int filas = cmd.ExecuteNonQuery();
+            con.Close();
+
+            return filas > 0;
         }
 
-        // TODO Reporte
+        // Reporte: total de salarios por departamento
         public DataTable TotalSalariosPorDepartamento()
         {
-            var dt = new DataTable();
-            using (var con = ConexionDB.ObtenerConexion())
-            using (var cmd = new SqlCommand(@"
-                SELECT d.NombreDepartamento AS Departamento,
-                       ISNULL(SUM(e.Salario), 0) AS TotalSalarios
-                FROM Departamento d
-                LEFT JOIN Empleado e ON e.IdDepartamento = d.IdDepartamento
-                GROUP BY d.NombreDepartamento", con))
-            using (var adapter = new SqlDataAdapter(cmd))
-            {
-                adapter.Fill(dt);
-            }
-            return dt;
+            DataTable tabla = new DataTable();
+
+            string sql = "SELECT d.NombreDepartamento AS Departamento, " +
+                         "ISNULL(SUM(e.Salario), 0) AS TotalSalarios " +
+                         "FROM Departamento d " +
+                         "LEFT JOIN Empleado e ON e.IdDepartamento = d.IdDepartamento " +
+                         "GROUP BY d.NombreDepartamento";
+
+            SqlConnection con = ConexionDB.ObtenerConexion();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
+            adaptador.Fill(tabla);
+            con.Close();
+
+            return tabla;
         }
     }
 }

@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             gbDatosEmpleado = new GroupBox();
+            txtIdEmpleado = new TextBox();
+            lblIdEmpleado = new Label();
             cboDepartamento = new ComboBox();
+            txtCargo = new TextBox();
             dtpFechaContratacion = new DateTimePicker();
             txtSalario = new TextBox();
             txtNombreEmpleado = new TextBox();
             txtCedula = new TextBox();
-            txtIdEmpleado = new TextBox();
             lblDepartamento = new Label();
             lblFechaContratacion = new Label();
             lblSalario = new Label();
             lblCargo = new Label();
             lblNombre = new Label();
             lblCedula = new Label();
-            lblIdEmpleado = new Label();
             gbBuscar = new GroupBox();
             btnBuscar = new Button();
             cboFiltrarDepartamento = new ComboBox();
@@ -56,7 +57,6 @@
             dgvReporte = new DataGridView();
             groupBox2 = new GroupBox();
             dgvEmpleados = new DataGridView();
-            txtCargo = new TextBox();
             gbDatosEmpleado.SuspendLayout();
             gbBuscar.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -67,20 +67,20 @@
             // 
             // gbDatosEmpleado
             // 
-            gbDatosEmpleado.Controls.Add(txtCargo);
+            gbDatosEmpleado.Controls.Add(txtIdEmpleado);
+            gbDatosEmpleado.Controls.Add(lblIdEmpleado);
             gbDatosEmpleado.Controls.Add(cboDepartamento);
+            gbDatosEmpleado.Controls.Add(txtCargo);
             gbDatosEmpleado.Controls.Add(dtpFechaContratacion);
             gbDatosEmpleado.Controls.Add(txtSalario);
             gbDatosEmpleado.Controls.Add(txtNombreEmpleado);
             gbDatosEmpleado.Controls.Add(txtCedula);
-            gbDatosEmpleado.Controls.Add(txtIdEmpleado);
             gbDatosEmpleado.Controls.Add(lblDepartamento);
             gbDatosEmpleado.Controls.Add(lblFechaContratacion);
             gbDatosEmpleado.Controls.Add(lblSalario);
             gbDatosEmpleado.Controls.Add(lblCargo);
             gbDatosEmpleado.Controls.Add(lblNombre);
             gbDatosEmpleado.Controls.Add(lblCedula);
-            gbDatosEmpleado.Controls.Add(lblIdEmpleado);
             gbDatosEmpleado.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbDatosEmpleado.Location = new Point(12, 6);
             gbDatosEmpleado.Name = "gbDatosEmpleado";
@@ -88,64 +88,82 @@
             gbDatosEmpleado.TabIndex = 3;
             gbDatosEmpleado.TabStop = false;
             gbDatosEmpleado.Text = "Datos del empleado";
-            //gbDatosEmpleado.Enter += groupBox1_Enter;
+            // 
+            // txtIdEmpleado
+            // 
+            txtIdEmpleado.BorderStyle = BorderStyle.FixedSingle;
+            txtIdEmpleado.Location = new Point(179, 25);
+            txtIdEmpleado.MaxLength = 11;
+            txtIdEmpleado.Name = "txtIdEmpleado";
+            txtIdEmpleado.ReadOnly = true;
+            txtIdEmpleado.Size = new Size(62, 27);
+            txtIdEmpleado.TabIndex = 24;
+            // 
+            // lblIdEmpleado
+            // 
+            lblIdEmpleado.AutoSize = true;
+            lblIdEmpleado.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblIdEmpleado.Location = new Point(7, 32);
+            lblIdEmpleado.Name = "lblIdEmpleado";
+            lblIdEmpleado.Size = new Size(90, 20);
+            lblIdEmpleado.TabIndex = 23;
+            lblIdEmpleado.Text = "IdEmpleado";
             // 
             // cboDepartamento
             // 
             cboDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cboDepartamento.FormattingEnabled = true;
-            cboDepartamento.Location = new Point(190, 216);
+            cboDepartamento.Location = new Point(179, 215);
             cboDepartamento.Name = "cboDepartamento";
-            cboDepartamento.Size = new Size(128, 28);
-            cboDepartamento.TabIndex = 20;
+            cboDepartamento.Size = new Size(139, 28);
+            cboDepartamento.TabIndex = 22;
+            // 
+            // txtCargo
+            // 
+            txtCargo.BorderStyle = BorderStyle.FixedSingle;
+            txtCargo.Location = new Point(179, 120);
+            txtCargo.Name = "txtCargo";
+            txtCargo.Size = new Size(137, 27);
+            txtCargo.TabIndex = 21;
             // 
             // dtpFechaContratacion
             // 
             dtpFechaContratacion.Format = DateTimePickerFormat.Short;
-            dtpFechaContratacion.Location = new Point(190, 184);
+            dtpFechaContratacion.Location = new Point(179, 185);
             dtpFechaContratacion.Name = "dtpFechaContratacion";
-            dtpFechaContratacion.Size = new Size(128, 27);
+            dtpFechaContratacion.Size = new Size(140, 27);
             dtpFechaContratacion.TabIndex = 19;
             // 
             // txtSalario
             // 
             txtSalario.BorderStyle = BorderStyle.FixedSingle;
-            txtSalario.Location = new Point(193, 152);
+            txtSalario.Location = new Point(179, 153);
             txtSalario.Name = "txtSalario";
-            txtSalario.Size = new Size(125, 27);
+            txtSalario.Size = new Size(137, 27);
             txtSalario.TabIndex = 18;
             // 
             // txtNombreEmpleado
             // 
             txtNombreEmpleado.BorderStyle = BorderStyle.FixedSingle;
-            txtNombreEmpleado.Location = new Point(193, 88);
+            txtNombreEmpleado.Location = new Point(179, 88);
             txtNombreEmpleado.Name = "txtNombreEmpleado";
-            txtNombreEmpleado.Size = new Size(125, 27);
+            txtNombreEmpleado.Size = new Size(137, 27);
             txtNombreEmpleado.TabIndex = 16;
             // 
             // txtCedula
             // 
             txtCedula.BorderStyle = BorderStyle.FixedSingle;
-            txtCedula.Location = new Point(193, 56);
+            txtCedula.Location = new Point(179, 56);
             txtCedula.MaxLength = 11;
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(125, 27);
+            txtCedula.Size = new Size(137, 27);
             txtCedula.TabIndex = 15;
-            // 
-            // txtIdEmpleado
-            // 
-            txtIdEmpleado.BorderStyle = BorderStyle.FixedSingle;
-            txtIdEmpleado.Location = new Point(193, 23);
-            txtIdEmpleado.Name = "txtIdEmpleado";
-            txtIdEmpleado.ReadOnly = true;
-            txtIdEmpleado.Size = new Size(81, 27);
-            txtIdEmpleado.TabIndex = 14;
             // 
             // lblDepartamento
             // 
             lblDepartamento.AutoSize = true;
             lblDepartamento.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDepartamento.Location = new Point(6, 216);
+            lblDepartamento.Location = new Point(7, 223);
             lblDepartamento.Name = "lblDepartamento";
             lblDepartamento.Size = new Size(108, 20);
             lblDepartamento.TabIndex = 13;
@@ -155,7 +173,7 @@
             // 
             lblFechaContratacion.AutoSize = true;
             lblFechaContratacion.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFechaContratacion.Location = new Point(6, 184);
+            lblFechaContratacion.Location = new Point(7, 191);
             lblFechaContratacion.Name = "lblFechaContratacion";
             lblFechaContratacion.Size = new Size(141, 20);
             lblFechaContratacion.TabIndex = 12;
@@ -165,7 +183,7 @@
             // 
             lblSalario.AutoSize = true;
             lblSalario.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSalario.Location = new Point(6, 152);
+            lblSalario.Location = new Point(6, 160);
             lblSalario.Name = "lblSalario";
             lblSalario.Size = new Size(56, 20);
             lblSalario.TabIndex = 11;
@@ -175,7 +193,7 @@
             // 
             lblCargo.AutoSize = true;
             lblCargo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCargo.Location = new Point(6, 120);
+            lblCargo.Location = new Point(6, 128);
             lblCargo.Name = "lblCargo";
             lblCargo.Size = new Size(50, 20);
             lblCargo.TabIndex = 10;
@@ -185,33 +203,21 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(6, 88);
+            lblNombre.Location = new Point(6, 97);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(66, 20);
             lblNombre.TabIndex = 9;
             lblNombre.Text = "Nombre";
-            //lblNombre.Click += label1_Click_1;
             // 
             // lblCedula
             // 
             lblCedula.AutoSize = true;
             lblCedula.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCedula.Location = new Point(6, 56);
+            lblCedula.Location = new Point(6, 65);
             lblCedula.Name = "lblCedula";
             lblCedula.Size = new Size(56, 20);
             lblCedula.TabIndex = 8;
             lblCedula.Text = "Cedula";
-            // 
-            // lblIdEmpleado
-            // 
-            lblIdEmpleado.AutoSize = true;
-            lblIdEmpleado.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblIdEmpleado.Location = new Point(6, 24);
-            lblIdEmpleado.Name = "lblIdEmpleado";
-            lblIdEmpleado.Size = new Size(90, 20);
-            lblIdEmpleado.TabIndex = 7;
-            lblIdEmpleado.Text = "IdEmpleado";
-            //lblIdEmpleado.Click += label1_Click;
             // 
             // gbBuscar
             // 
@@ -240,7 +246,7 @@
             btnBuscar.TabIndex = 6;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
-            //btnBuscar.Click += btnBuscar_Click;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // cboFiltrarDepartamento
             // 
@@ -250,7 +256,7 @@
             cboFiltrarDepartamento.Name = "cboFiltrarDepartamento";
             cboFiltrarDepartamento.Size = new Size(232, 28);
             cboFiltrarDepartamento.TabIndex = 5;
-            //cboFiltrarDepartamento.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
+            cboFiltrarDepartamento.Click += cboFiltroDepartamento_SelectedIndexChanged;
             // 
             // txtBuscar
             // 
@@ -259,6 +265,7 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(232, 27);
             txtBuscar.TabIndex = 4;
+            txtBuscar.Click += txtBuscar_TextChanged;
             // 
             // lblFiltrarDepartamento
             // 
@@ -269,7 +276,6 @@
             lblFiltrarDepartamento.Size = new Size(162, 19);
             lblFiltrarDepartamento.TabIndex = 3;
             lblFiltrarDepartamento.Text = "Filtrar por departamento";
-            //lblFiltrarDepartamento.Click += label1_Click_2;
             // 
             // lblBuscar
             // 
@@ -293,6 +299,7 @@
             btnAgregar.TabIndex = 5;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
@@ -320,6 +327,7 @@
             btnEliminar.TabIndex = 7;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnLimpiar
             // 
@@ -333,6 +341,7 @@
             btnLimpiar.TabIndex = 8;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // groupBox1
             // 
@@ -376,16 +385,9 @@
             dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEmpleados.Size = new Size(526, 214);
             dgvEmpleados.TabIndex = 0;
+            dgvEmpleados.CellClick += dgvEmpleados_CellClick;
             // 
-            // txtCargo
-            // 
-            txtCargo.BorderStyle = BorderStyle.FixedSingle;
-            txtCargo.Location = new Point(193, 121);
-            txtCargo.Name = "txtCargo";
-            txtCargo.Size = new Size(125, 27);
-            txtCargo.TabIndex = 21;
-            // 
-            // Form1
+            // FrmEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -423,7 +425,6 @@
         private Button btnLimpiar;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Label lblIdEmpleado;
         private Label lblCedula;
         private Label lblNombre;
         private Label lblCargo;
@@ -434,9 +435,7 @@
         private Label lblBuscar;
         private TextBox txtNombreEmpleado;
         private TextBox txtCedula;
-        private TextBox txtIdEmpleado;
         private TextBox txtSalario;
-        private ComboBox cboDepartamento;
         private DateTimePicker dtpFechaContratacion;
         private TextBox txtBuscar;
         private ComboBox cboFiltrarDepartamento;
@@ -444,5 +443,8 @@
         private Button btnBuscar;
         private DataGridView dgvReporte;
         private TextBox txtCargo;
+        private ComboBox cboDepartamento;
+        private Label lblIdEmpleado;
+        private TextBox txtIdEmpleado;
     }
 }
